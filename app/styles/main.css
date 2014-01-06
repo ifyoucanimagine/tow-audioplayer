@@ -1,0 +1,21 @@
+body {
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.over-scroll {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.center { text-align: center; }
+
+.db  { display: block; }
+.dib { display: inline-block; }
+
+.fl { float: left; }
+.fr { float: right; }
+
+.pos-rel { position: relative; }
+.pos-abs { position: absolute; }

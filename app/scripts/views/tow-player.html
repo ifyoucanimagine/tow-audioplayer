@@ -1,0 +1,66 @@
+<article class="tow-player">
+  <div class="">
+    <div class="">
+      <div class="controls fl">
+        <a 
+          title="Previous"
+          class="control previous"
+          ng-show="playlist"
+          ng-click="previous()">
+      
+          <i class="icon-previous">Previous</i>
+            
+        </a>
+        <a
+          title="Play"
+          class="control play"
+          
+          ng-click="play()"
+          ng-hide="player.track==track && player.playing">
+          
+          <i class="icon-play">Play</i>
+            
+        </a>
+        <a  
+          title="Pause"
+          class="control pause"
+          
+          ng-click="pause()"
+          ng-show="player.track==track && player.playing">
+          
+          <i class="icon-pause">Pause</i>
+            
+        </a>
+        <a
+          title="Loading"
+          class="control loading"
+
+          ng-show="loading">
+          
+          <i class="icon-loading">Loading...</i>            
+        </a>
+        <a  
+          title="Next"
+          class="control next"
+          ng-show="playlist"
+          ng-click="next()">
+          
+          
+          <i class="icon-next">Next</i>
+            
+        </a>
+      </div>
+      <div class="title fl">
+        {{ track.title }}
+      </div>
+    </div>
+    
+    <div class="playback">
+      <div class="playback-time">
+        <small class="time">{{ currentTime | mediaTime }}&nbsp;|&nbsp;</small><small class="duration">{{ duration | mediaTime }}</small>
+      </div>
+      <progress class="progress progress-back progress-fore progress-thin" value="{{ currentTime / duration}}" ng-click="seekTo($event)">{{ currentTime / duration}}</progress>
+    </div>
+    <div tow-player-playlist></div>
+  </div>
+</article>

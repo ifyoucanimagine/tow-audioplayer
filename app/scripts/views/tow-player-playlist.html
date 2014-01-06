@@ -1,0 +1,11 @@
+<ol class="">
+  <li class="" ng-repeat="track in playlist.tracks">
+    <a  href=""
+        class=""
+        
+        ng-click="play(track)"
+        ng-class="{ 'playing': (player.playing || player.paused) == track }" >
+        {{ track.title }}
+    </a>
+  </li>
+</ol>

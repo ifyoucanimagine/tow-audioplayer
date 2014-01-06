@@ -1,0 +1,40 @@
+<article class="tow-player">
+  <div class="">
+    <div class="">
+      <div class="controls fl">
+        <a
+          title="Play"
+          class="control play"
+          
+          ng-click="play()"
+          ng-hide="player.track==track">
+          
+          <i class="icon-play">&gt;</i>
+            
+        </a>
+        <a  
+          title="Pause"
+          class="control pause"
+          
+          ng-click="pause()"
+          ng-show="player.track==track && player.playing && !loading">
+          
+          <i class="icon-pause">&time;</i>
+            
+        </a>
+        <a
+          title="Loading"
+          class="control loading"
+          
+          ng-show="loading">
+          
+          <i class="icon-loading">&asymp;</i>
+            
+        </a>
+      </div>
+      <div class="title fl" ng-hide="hide-title">
+        {{ track.title }}
+      </div>
+    </div>
+  </div>
+</article>
