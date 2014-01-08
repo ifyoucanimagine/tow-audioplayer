@@ -13,7 +13,14 @@
 
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/tow-player.css">
+
+        
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/skeleton.css">
+        <link rel="stylesheet" href="styles/layout.css">
+
+                <link rel="stylesheet" href="styles/tow-player.css">
+        <link rel="stylesheet" href="bower_components/Snap.js/snap.css">
         <!-- endbuild -->
   </head>
   <body ng-app="towPlayerApp">
@@ -27,40 +34,94 @@
     <![endif]-->
     
     <!-- Add your site or application content here -->
-    <div>
-    <div  tow-player
-          player="player"
-          data-client-id="831f96869592002d68fd77b01327dd64"
-          data-src="https://soundcloud.com/theorbweavers/sets/the-orbweavers-playlist"
-          data-src-service="https://api.soundcloud.com/resolve.json"
-          data-master="true"
-          >
+    <div class="snap-drawers">
+        <div class="snap-drawer snap-drawer-left">
+        </div>
+        <div class="snap-drawer snap-drawer-right">
+            <div  tow-player
+                player="player"
+                data-client-id="831f96869592002d68fd77b01327dd64"
+                data-src="https://soundcloud.com/radiohead/sets/radiohead-tkol-rmx7-1"
+                data-src-service="https://api.soundcloud.com/resolve.json"
+                data-master="true"
+                >
+          </div>
+          
+        </div>
     </div>
     
-    
-     <div  tow-player
-        data-client-id="831f96869592002d68fd77b01327dd64"
-        data-src="https://soundcloud.com/theorbweavers/match-factory"
-        data-src-service="https://api.soundcloud.com/resolve.json"
-        >
+    <div id="main-content" class="snap-content">
+      <div class="header">
+      <a id="logo" href="/" class="sixteen columns alpha">
+        <h1 >Podcast Player</h1>
+      </a>
+      <ul class="nav">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#programs">Programs</a></li>
+        <li><a href="/#playlist">Playlist</a></li>
+      </ul>
+      <button id="tow-snap-toggle">Open</button>
+      <div now-playing></div>
+      </div>
+          <div class="container">
+      <div class="page" ng-view>
+        
+      </div>
+          </div>
     </div>
-    
-    
-    <div  tow-player-track
-        data-client-id="831f96869592002d68fd77b01327dd64"
-        data-src="https://soundcloud.com/theorbweavers/06-on-my-way-home"
-        >
-    </div>
-    </div>
-    
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-route.js"></script>
+    <script src="bower_components/Snap.js/snap.js"></script>
+    
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
     <script src="scripts/views/templates.js"></script>
     <script src="scripts/controllers/controllers.js"></script>
     <script src="scripts/services/services.js"></script>
     <script src="scripts/filters/filters.js"></script>
     <script src="scripts/directives/directives.js"></script>
-    
     <!-- endbuild -->
+    <script type="text/javascript">
+      var snapper = new Snap({
+          element: document.getElementById('main-content'),
+          disable: 'left'
+      });
+      $(document).on("click", "#tow-snap-toggle", function(){
+
+          if( snapper.state().state=="right" ){
+            
+            snapper.close();
+          } else {
+            snapper.open("right");
+
+          }
+        }
+      );
+        
+      
+
+      snapper.on('end', function(){
+        console.log("State: ",snapper.state());
+        if(snapper.state().info.opening=="right" && snapper.state().info.towards=="left"){
+          $("#tow-now-playing").fadeOut();
+          $("#tow-snap-toggle").html("Close");
+        }
+        if(snapper.state().info.opening=="right" && snapper.state().info.towards=="right"){
+          $("#tow-now-playing").fadeIn();
+          $("#tow-snap-toggle").html("Open");
+        }
+
+      });
+      snapper.on('open', function(){
+        $("#tow-now-playing").fadeOut();
+        $("#tow-snap-toggle").html("Close");
+      });
+      snapper.on('close', function(){
+        $("#tow-now-playing").fadeIn();
+        $("#tow-snap-toggle").html("Open");
+      });
+    </script>
+    
   </body>
 </html>

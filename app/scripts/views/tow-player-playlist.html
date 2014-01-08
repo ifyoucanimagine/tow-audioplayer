@@ -1,11 +1,14 @@
-<ol class="">
+<ul class="">
   <li class="" ng-repeat="track in playlist.tracks">
-    <a  href=""
-        class=""
-        
-        ng-click="play(track)"
-        ng-class="{ 'playing': (player.playing || player.paused) == track }" >
+  
+    <div class="program" ng-click="play(track)" ng-class="{ 'playing': (player.playing || player.paused) == track }">
+      <a title="{{ track.title }}" class="mp3">
+        <img class="program-image" src="http://lorempixel.com/g/400/200/abstract/" alt="{{ track.title }}" >
+      </a>
+      <a>
         {{ track.title }}
-    </a>
+      </a>
+    </div>
+    
   </li>
 </ol>

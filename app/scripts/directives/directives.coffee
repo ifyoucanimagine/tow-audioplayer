@@ -57,7 +57,9 @@ towPlayerApp.directive "towPlayer", ($document, $http, towPlayerService) ->
         scope.playlist = data
         scope.track = scope.playlist.tracks[0]
         player.addScope scope
-
+        #remove this
+        player.scope = scope
+        
       else if data.kind is "track"
         scope.track = data
         player.addScope scope
@@ -91,6 +93,9 @@ towPlayerApp.directive "towPlayer", ($document, $http, towPlayerService) ->
   
     ), false
 
+
+    
+  
 .directive "towPlayerPlaylist", () ->
   restrict: "AE"
   replace: true
@@ -137,3 +142,12 @@ towPlayerApp.directive "towPlayer", ($document, $http, towPlayerService) ->
         scope.track = data
         console.log "scope: ", scope.track
         scope.loading = false
+        
+.directive "nowPlaying", (towPlayerService) ->
+  restrict: "AE"
+  scope: {}
+  templateUrl: "views/tow-player-now-playing.html"
+  link: (scope, elem, attrs) ->
+    player = towPlayerService.player
+    scope.player = player
+    
