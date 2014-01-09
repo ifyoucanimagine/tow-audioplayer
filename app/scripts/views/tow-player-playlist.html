@@ -1,5 +1,5 @@
 <ul class="">
-  <li class="" ng-repeat="track in playlist.tracks">
+  <li class="" ng-repeat="track in playlist.tracks | filter:playlistFilter">
   
     <div class="program" ng-click="play(track)" ng-class="{ 'playing': (player.playing || player.paused) == track }">
       <a title="{{ track.title }}" class="mp3">

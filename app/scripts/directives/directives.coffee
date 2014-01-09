@@ -53,13 +53,20 @@ towPlayerApp.directive "towPlayer", ($document, $http, towPlayerService) ->
     $http.jsonp attrs.srcService,
       params: params
     .success (data) ->
+      console.log "data: ", data
       if data.tracks
         scope.playlist = data
         scope.track = scope.playlist.tracks[0]
         player.addScope scope
         #remove this
         player.scope = scope
-        
+      else if data instanceof Array
+        scope.playlist = {}
+        scope.playlist.tracks = data;
+        scope.track = scope.playlist.tracks[0]
+        player.addScope scope
+        #remove this
+        player.scope = scope
       else if data.kind is "track"
         scope.track = data
         player.addScope scope

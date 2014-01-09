@@ -141,7 +141,7 @@ angular.module("views/tow-player-now-playing.html", []).run(["$templateCache", (
 angular.module("views/tow-player-playlist.html", []).run(["$templateCache", ($templateCache) ->
   $templateCache.put("views/tow-player-playlist.html",
     "<ul class=\"\">\n" +
-    "  <li class=\"\" ng-repeat=\"track in playlist.tracks\">\n" +
+    "  <li class=\"\" ng-repeat=\"track in playlist.tracks | filter:playlistFilter\">\n" +
     "  \n" +
     "    <div class=\"program\" ng-click=\"play(track)\" ng-class=\"{ 'playing': (player.playing || player.paused) == track }\">\n" +
     "      <a title=\"{{ track.title }}\" class=\"mp3\">\n" +
@@ -204,6 +204,9 @@ angular.module("views/tow-player-track.html", []).run(["$templateCache", ($templ
 angular.module("views/tow-player.html", []).run(["$templateCache", ($templateCache) ->
   $templateCache.put("views/tow-player.html",
     "<article class=\"tow-player\">\n" +
+    "<div class=\"search\">\n" +
+    "	<input type=\"text\" id=\"search\" placeholder=\"Search for Things\" ng-model=\"playlistFilter\">\n" +
+    "</div>\n" +
     "  <div class=\"\">\n" +
     "    <div class=\"\">\n" +
     "      <div class=\"controls fl\">\n" +

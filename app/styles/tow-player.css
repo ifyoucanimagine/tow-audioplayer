@@ -57,8 +57,16 @@ a.control {
   margin-left: 6px;
   position: relative;
   float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width:200px;
+  width:90%;
 }
 
+#search{
+  width:100%;
+}
 
 /* Radicons */
 

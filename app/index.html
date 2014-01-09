@@ -38,10 +38,11 @@
         <div class="snap-drawer snap-drawer-left">
         </div>
         <div class="snap-drawer snap-drawer-right">
+          
             <div  tow-player
                 player="player"
                 data-client-id="831f96869592002d68fd77b01327dd64"
-                data-src="https://soundcloud.com/radiohead/sets/radiohead-tkol-rmx7-1"
+                data-src="https://soundcloud.com/radiohead/tracks"
                 data-src-service="https://api.soundcloud.com/resolve.json"
                 data-master="true"
                 >
@@ -87,20 +88,7 @@
           element: document.getElementById('main-content'),
           disable: 'left'
       });
-      $(document).on("click", "#tow-snap-toggle", function(){
-
-          if( snapper.state().state=="right" ){
-            
-            snapper.close();
-          } else {
-            snapper.open("right");
-
-          }
-        }
-      );
-        
       
-
       snapper.on('end', function(){
         console.log("State: ",snapper.state());
         if(snapper.state().info.opening=="right" && snapper.state().info.towards=="left"){
@@ -121,6 +109,25 @@
         $("#tow-now-playing").fadeIn();
         $("#tow-snap-toggle").html("Open");
       });
+      
+      $(document).on("click", "#tow-snap-toggle", function(){
+          if( snapper.state().state=="right" ){
+            snapper.close();
+          } else {
+            snapper.open("right");
+  
+          }
+        }
+      );
+      
+      $(document).on("focus", "#search", function(){
+      	snapper.expand('right');
+      });
+      
+      $(document).on("blur", "#search", function(){
+      	snapper.open('right');
+      });
+      
     </script>
     
   </body>
