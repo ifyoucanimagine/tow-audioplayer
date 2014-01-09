@@ -1,0 +1,416 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+/* Table of Content
+==================================================
+	#Site Styles
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+
+/* #Site Styles
+================================================== */
+[class^="icon-"], [class*=" icon-"] {
+display: inline-block;
+width: 14px;
+height: 14px;
+margin-top: 1px;
+line-height: 14px;
+vertical-align: text-top;
+background-image: url("../img/glyphicons-halflings.png");
+background-position: 14px 14px;
+background-repeat: no-repeat;
+}
+
+/* #Page Styles
+================================================== */
+*, :before, :after {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.header {
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 100%;
+  width: 100%;
+  min-height: 60px;
+  top: 0;
+  left: 0;
+  background-color: #FFF;
+  border-bottom: 1px solid #ccc;
+  z-index: 1;
+}
+.header .container {
+  background-color: #FFF;
+}
+
+.header #logo {
+  margin-top: 20px;
+  background-image: url(../img/icons.png);
+  background-position: 0 -45px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  height: 20px;
+  width: 162px;
+}
+.header #logo h1{
+  font-size: 70px;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 95px;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header #playing-placeholder {
+  float: right;
+  text-align: right;
+  padding-top: 20px;
+}
+
+.header #description-placeholder {
+  float: right;
+  width: 650px;
+  text-align: right;
+  font-style: italic;
+}
+.content {
+  position: relative;
+  top: 100px;
+}
+
+#load-more {
+  position: relative;
+  top: 100px;  
+}
+/*
+.footer {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  border-top: 1px solid #c1c1c1;
+  z-index: 1;
+  height: 79px;
+  margin-top:10px;
+}*/
+
+
+.program {
+  float: left;
+  width: 200px;
+  height: 220px;
+  position: relative;
+  margin-right: 30px;
+/*  outline: 1px solid rgba(0,0,0,0.1);
+*/  margin-bottom: 30px;
+  padding: 5px;
+  background-color: #FFF; 
+  }
+  .program.active {
+    background-color:#FFC;
+  }
+
+.program-position {
+  font-family: CenturyGothic-Bold;
+  font-size: 40px;
+  /* color: rgb(255, 255, 255);*/
+  width: 80px;
+  left: 0px;
+  top: 30px;
+  letter-spacing: 1px;
+  line-height: 48px;
+  opacity: 1;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+#load-more {
+background: 0;
+text-transform: normal;
+color: #666;
+text-align: center;
+display: block;
+padding: 12px 0 12px 0;
+border: none;
+background-color: black;
+text-shadow: none;
+float:left;
+color: white;
+
+}
+#load-more:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+.program-blurb {
+  width: 200px;
+  padding: 5px;
+}
+.program-image {
+/*  width: 200px;
+  height: 112px;
+  border: 5px solid #fff;
+  background-image: url('/img/program_default.png');
+*/  /*border-radius: 5px;*/
+  width:100%;
+}
+.program-description {
+  display:none;
+}
+
+#loader {
+    width: 100%;
+    text-align: center;
+}
+.gloader {
+  display:inline-block; position:relative;
+  width:50px; height:50px; margin:10px;
+  font-size:0px;
+}
+
+.gloader:before,
+.gloader:after,
+.gloader > * {
+  content:' '; display:block; width:50%; height:100%;
+  position:absolute; top:0px; left:0px; z-index:1;
+  background:#21aa29; border-radius:25px 0px 0px 25px;
+}
+
+.gloader:after {
+  left:auto; right:0px;
+  background:#21aa29; border-radius:0px 25px 25px 0px;
+}
+
+.gloader > * {
+  position:absolute; top:0px; left:auto; right:0px; z-index:3;
+  background:#21aa29; border-radius:0px 25px 25px 0px;
+  -webkit-transform-style:preserve-3d;
+  -webkit-transform-origin:0px 50%;
+  -webkit-transition:all 0.33s 0s linear;
+}
+
+/* Generic Timing */
+.gloader[data-state] > *,
+.gloader[data-state$=".5"] > *{
+  z-index:10;
+  -webkit-transition-duration:0.0000001s;
+  -webkit-transition-timing-function:linear;
+  -webkit-transform:rotateY(0deg);
+}
+.gloader[data-state$=".5"] > * {
+  -webkit-transform:rotateY(-90deg);
+}
+.gloader[data-state$=".25"] > *,
+.gloader[data-state$=".75"] > * {
+  z-index:11;
+  -webkit-transition-duration:0.33s;
+  -webkit-transition-timing-function:ease-in;
+  -webkit-transform:rotateY(-90deg);
+}
+.gloader[data-state$=".75"] > * {
+  -webkit-transition-timing-function:ease-out;
+  -webkit-transform:rotateY(-180deg);
+}
+
+/* Rotation - not animated */
+.gloader[data-state^="0"],
+.gloader[data-state^="2"] {
+  -webkit-transform:rotate(0deg);
+}
+.gloader[data-state^="1"],
+.gloader[data-state^="3"] {
+  -webkit-transform:rotate(-90deg);
+}
+
+/*
+  Google Colors (Green -> Blue -> Red -> Yellow...):
+  Green:  #21aa29 / #105514
+  Blue:   #2159d6 / #102c6b
+  Red:    #d62408 / #6b1204
+  Yellow: #ffcf00 / #7f6700
+*/
+/* Green -> Blue */
+.gloader[data-state="0.75"] > *,
+.gloader[data-state^="0"]:after {
+  background:#2159d6; /* Final */
+}
+.gloader[data-state="0"] > *,
+.gloader[data-state^="0"]:before,
+.gloader[data-state="0"]:after {
+  background:#21aa29; /* Start */
+}
+.gloader[data-state="0.25"] > * {
+  background:#105514; /* Start Middle */
+}
+.gloader[data-state="0.5"] > * {
+  background:#102c6b; /* End Middle */
+}
+
+/* Blue -> Red */
+.gloader[data-state="1.75"] > *,
+.gloader[data-state^="1"]:after {
+  background:#d62408; /* Final */
+}
+.gloader[data-state="1"] > *,
+.gloader[data-state^="1"]:before,
+.gloader[data-state="1"]:after {
+  background:#2159d6; /* Start */
+}
+.gloader[data-state="1.25"] > * {
+  background:#102c6b; /* Start Middle */
+}
+.gloader[data-state="1.5"] > * {
+  background:#6b1204; /* End Middle */
+}
+
+/* Red -> Yellow */
+.gloader[data-state="2.75"] > *,
+.gloader[data-state^="2"]:after {
+  background:#ffcf00; /* Final */
+}
+.gloader[data-state="2"] > *,
+.gloader[data-state^="2"]:before,
+.gloader[data-state="2"]:after {
+  background:#d62408; /* Start */
+}
+.gloader[data-state="2.25"] > * {
+  background:#6b1204; /* Start Middle */
+}
+.gloader[data-state="2.5"] > * {
+  background:#7f6700; /* End Middle */
+}
+
+/* Yellow -> Green */
+.gloader[data-state="3.75"] > *,
+.gloader[data-state^="3"]:after {
+  background:#21aa29; /* Final */
+}
+.gloader[data-state="3"] > *,
+.gloader[data-state^="3"]:before,
+.gloader[data-state="3"]:after {
+  background:#ffcf00; /* Start */
+}
+.gloader[data-state="3.25"] > * {
+  background:#7f6700; /* Start Middle */
+}
+.gloader[data-state="3.5"] > * {
+  background:#105514; /* End Middle */
+}
+
+
+/*JPLAYER*/
+.jp-jplayer {
+  width: 0px;
+  height: 0px;
+  background-color: #000000;
+  cursor: pointer; 
+}
+.jp-audio {
+  float: left;
+  display: block;
+  position: relative;
+  height: 40px;
+  background: #fff;
+  color: #646464;
+  z-index: 996;
+  margin-bottom: 5px;
+/*  border: 1px solid #e6e6e6;
+*/
+}
+.jp-audio a {
+  text-decoration: none;
+  color: #d2d6db;
+}
+.jp-audio a:hover {
+  color: #ffffff;
+}
+.jp-interface {
+
+}
+/* CONTROLS
+----------------------------------------------- */
+.jp-controls {
+
+  margin-top: 7px;
+}
+
+
+.jp-controls a.jp-play {
+  background-image: url(../img/icons.png);
+  background-position: -105px 0;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  height: 45px;
+  width: 45px;
+  float: left;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
+.jp-controls a.jp-play:hover {
+  opacity: 1;
+  
+}
+
+.jp-controls a.jp-pause {
+  background-image: url(../img/icons.png);
+  background-position: -98px -100px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  height: 45px;
+  width: 45px;
+
+}
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
+
+
+/* #Font-Face
+================================================== */
+/* 	This is the proper syntax for an @font-face file
+		Just create a "fonts" folder at the root,
+		copy your FontName into code below and remove
+		comment brackets */
+
+/*	@font-face {
+	    font-family: 'FontName';
+	    src: url('../fonts/FontName.eot');
+	    src: url('../fonts/FontName.eot?iefix') format('eot'),
+	         url('../fonts/FontName.woff') format('woff'),
+	         url('../fonts/FontName.ttf') format('truetype'),
+	         url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
+	    font-weight: normal;
+	    font-style: normal; }
+*/

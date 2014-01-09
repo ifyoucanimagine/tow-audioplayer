@@ -1,0 +1,68 @@
+<div id="tow-now-playing" class="tow-now-playing">
+<article class="tow-player">
+  <div class="">
+    <div class="">
+      <div class="controls fl">
+        <a 
+          title="Previous"
+          class="control previous"
+          ng-show="playlist"
+          ng-click="player.scope.previous()">
+      
+          <i class="icon-previous"></i>
+            
+        </a>
+        <a
+          title="Play"
+          class="control play"
+          
+          ng-click="player.scope.play()"
+          ng-hide="player.track==player.scope.track && player.playing">
+          
+          <i class="icon-play"></i>
+            
+        </a>
+        <a  
+          title="Pause"
+          class="control pause"
+          
+          ng-click="player.scope.pause()"
+          ng-show="player.track==player.scope.track && player.playing">
+          
+          <i class="icon-pause"></i>
+            
+        </a>
+        <a
+          title="Loading"
+          class="control loading"
+
+          ng-show="loading">
+          
+          <i class="icon-loading"></i>            
+        </a>
+        <a  
+          title="Next"
+          class="control next"
+          ng-show="playlist"
+          ng-click="player.scope.next()">
+          
+          
+          <i class="icon-next"></i>
+            
+        </a>
+      </div>
+      <div class="title fl">
+        {{ player.scope.track.title }}
+      </div>
+    </div>
+    
+    <div class="playback">
+      <div class="playback-time">
+        <small class="time">{{ player.scope.currentTime | mediaTime }}&nbsp;|&nbsp;</small><small class="duration">{{ player.scope.duration | mediaTime }}</small>
+      </div>
+      <progress class="progress progress-back progress-fore progress-thin" value="{{ player.scope.currentTime / player.scope.duration}}" ng-click="player.scope.seekTo($event)">{{ player.scope.currentTime / player.scope.duration}}</progress>
+    </div>
+
+  </div>
+</article>
+</div>
